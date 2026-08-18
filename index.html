@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Der Engpass-Check &middot; Wie abh&auml;ngig ist Deine Firma von einzelnen K&ouml;pfen? &middot; mocotel</title>
-<meta name="description" content="8 kurze Fragen aus Deinem Alltag, 60 Sekunden, sofort Dein Ergebnis. Dazu der 15-Minuten-Beweis zum Selbst-Ausprobieren. Kostenlos, von mocotel services.">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#0E2240">
-<meta property="og:title" content="Der Engpass-Check &middot; mocotel">
-<meta property="og:description" content="Finde in 60 Sekunden raus, wie abh&auml;ngig Deine Firma von einzelnen K&ouml;pfen ist.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Der Engpass-Check · Wie abhängig ist Deine Firma von einzelnen Köpfen? · mocotel</title>
+<meta content="8 kurze Fragen aus Deinem Alltag, 60 Sekunden, sofort Dein Ergebnis. Dazu der 15-Minuten-Beweis zum Selbst-Ausprobieren. Kostenlos, von mocotel services." name="description"/>
+<meta content="index,follow" name="robots"/>
+<meta content="#0E2240" name="theme-color"/>
+<meta content="Der Engpass-Check · mocotel" property="og:title"/>
+<meta content="Finde in 60 Sekunden raus, wie abhängig Deine Firma von einzelnen Köpfen ist." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --navy:#0E2240;--navy-2:#0A1730;--panel:rgba(255,255,255,.045);--panel-2:rgba(9,19,37,.55);
@@ -75,7 +76,7 @@ header.site-header{position:sticky;top:0;z-index:60;background:rgba(11,24,48,.82
 .hero p.sub b{color:#fff;font-weight:600}
 .hero-cta{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap}
 .hero-meta{margin-top:26px;display:flex;flex-direction:column;gap:8px;justify-content:flex-start;color:var(--muted);font-size:.93rem}
-.hero-meta span{display:inline-flex;align-items:center;gap:8px}
+.hero-meta span{display:inline-flex;align-items:flex-start;gap:8px;flex-wrap:nowrap}
 .ck{color:var(--blue-soft);font-weight:700}
 .console-wrap{max-width:none;margin:0;position:relative;isolation:isolate}
 .console{position:relative;border-radius:14px;overflow:hidden;text-align:left;font-family:"IBM Plex Mono",ui-monospace,monospace;background:linear-gradient(180deg,rgba(29,55,102,.5),rgba(9,19,37,.92));border:1px solid rgba(127,176,255,.18);box-shadow:0 30px 80px -25px rgba(48,88,162,.5),inset 0 0 0 1px rgba(255,255,255,.04)}
@@ -245,6 +246,10 @@ footer{background:rgba(7,15,30,.6);border-top:1px solid var(--line);color:var(--
 .disclaimer{margin-top:22px;font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6}
 .copyright{margin-top:16px;font-size:.82rem}
 br.mbr{display:none}
+@media(max-width:1360px) and (min-width:881px){
+  .hero h1{font-size:clamp(2.1rem,4.1vw,3.3rem)}
+  .hero-grid{gap:44px}
+}
 @media(max-width:880px){
   .pain-grid,.feat-grid,.uc-grid,.ben-grid{grid-template-columns:1fr}
   .stat-grid{grid-template-columns:repeat(2,1fr);gap:32px 20px}
@@ -292,6 +297,22 @@ br.mbr{display:none}
   .price-row .price{font-size:2.6rem}
 }
 @media(prefers-reduced-motion:reduce){.border-beam::before,.marquee-track,.logo-marquee__track{animation:none}}
+
+/* ===== Typografie: keine Einzelwort-Zeilen =====================
+   balance verteilt Ueberschriften gleichmaessig auf ihre Zeilen,
+   pretty verhindert im Fliesstext eine letzte Zeile mit nur einem Wort.
+   Faellt in aelteren Browsern sauber auf normales Umbrechen zurueck. */
+h1,h2,h3,h4,h5,blockquote,summary,
+.punch,.hero-subhead,.res-h,.fazit,.amount,.closer strong,.noabo,
+.quiz__q,.quiz__intro-h,.dk-card h3,.step h3,.feat h3,.ben h3,.pain h3,
+.inside-card h3,.price-card h3,.extra h3,.schluss h2,.final h2,.sect-h h2{
+  text-wrap:balance;
+}
+p,li,span,label,figcaption,
+.sub,.desc,.wie,.quiz__hint,.ip-note,.inside-trust,.placeholder-note,
+.dauer,.lab,.who,.dk-next li,.erw li,.vor li,.quiz__intro-p,.res-p{
+  text-wrap:pretty;
+}
 </style>
 <style>
 /* ===== Engpass-Check (Quiz) ===== */
@@ -342,182 +363,167 @@ br.mbr{display:none}
 </style>
 </head>
 <body>
-
 <header class="site-header">
-  <nav class="site-nav">
-    <img src="assets/mocotel-logo.png" alt="mocotel IT-Service &amp; Security" class="logo-img">
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="#problem">Problem</a><a href="#check">Der Check</a>
-      </div>
-      <a href="#check" data-track="cta_header" class="btn">Check starten</a>
-    </div>
-  </nav>
+<nav class="site-nav">
+<img alt="mocotel IT-Service &amp; Security" class="logo-img" src="assets/mocotel-logo.png"/>
+<div class="nav-right">
+<div class="nav-links">
+<a href="#problem">Problem</a><a href="#check">Der Check</a>
+</div>
+<a class="btn" data-track="cta_header" href="#check">Check starten</a>
+</div>
+</nav>
 </header>
-
 <main>
-
 <section class="hero has-fade-bottom">
-  <div class="inner hero-grid">
-    <div class="hero-left">
-      <span class="badge">Kostenloser Selbst-Check &middot; 60 Sekunden</span>
-      <h1>Dein Handy klingelt im Urlaub.<br>Weil die Antwort nur in <span class="accent">Deinem Kopf</span> liegt.</h1>
-      <p class="sub"><span class="hero-subhead">Gib Deiner Firma ein Ged&auml;chtnis.</span>Eine KI, die ausschlie&szlig;lich Euer eigenes Firmenwissen kennt und die Fragen Deines Teams in Sekunden beantwortet, mit Quelle. Damit Dein Team das System fragt statt Dich.</p>
-      <div class="hero-cta">
-        <a href="#check" data-track="cta_hero" class="btn lg">Mach den Engpass-Check <span class="btn-arrow">&rarr;</span></a>
-      </div>
-      <div class="hero-meta">
-        <span><span class="ck">&#10003;</span> Kostenlos. 8 kurze Fragen, 60 Sekunden, sofort Dein Ergebnis.</span>
-        <span><span class="ck">&#10003;</span> Dazu der 15-Minuten-Beweis zum Selbst-Ausprobieren.</span>
-      </div>
-      <p style="margin-top:20px;color:var(--muted);font-size:.9rem">Von mocotel, IT-Systemhaus aus NRW &middot; &uuml;ber 10 Jahre am Markt &middot; mehr als 300 betreute Unternehmen</p>
-      <div class="reviews">
-        <img src="assets/google-rating.png" alt="Google Bewertung" loading="lazy" onerror="this.style.display='none'">
-        <img src="assets/kunden-rating.png" alt="Kundenbewertung" loading="lazy" onerror="this.style.display='none'">
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="console-wrap">
-        <img src="assets/img/gruender-zwei.jpg" alt="Thomas und Clemens Glaeser, Gr&uuml;nder von mocotel services" loading="eager" class="hero-photo">
-      </div>
-    </div>
-  </div>
+<div class="inner hero-grid">
+<div class="hero-left">
+<span class="badge">Kostenloser Selbst-Check · 60 Sekunden</span>
+<h1>Dein Handy klingelt im Urlaub.<br/>Weil die Antwort nur in <span class="accent">Deinem Kopf</span> liegt.</h1>
+<p class="sub"><span class="hero-subhead">Gib Deiner Firma ein Gedächtnis.</span>Eine KI, die ausschließlich Euer eigenes Firmenwissen kennt und die Fragen Deines Teams in Sekunden beantwortet, mit Quelle. Damit Dein Team das System fragt statt Dich.</p>
+<div class="hero-cta">
+<a class="btn lg" data-track="cta_hero" href="#check">Mach den Engpass-Check <span class="btn-arrow">→</span></a>
+</div>
+<div class="hero-meta">
+<span><span class="ck">✓</span> Kostenlos. 8 kurze Fragen, 60 Sekunden, sofort Dein Ergebnis.</span>
+<span><span class="ck">✓</span> Dazu der 15-Minuten-Beweis zum Selbst-Ausprobieren.</span>
+</div>
+<p style="margin-top:20px;color:var(--muted);font-size:.9rem">Von mocotel, IT-Systemhaus aus NRW · über 10 Jahre am Markt · mehr als 300 betreute Unternehmen</p>
+<div class="reviews">
+<img alt="Google Bewertung" loading="lazy" onerror="this.style.display='none'" src="assets/google-rating.png"/>
+<img alt="Kundenbewertung" loading="lazy" onerror="this.style.display='none'" src="assets/kunden-rating.png"/>
+</div>
+</div>
+<div class="hero-right">
+<div class="console-wrap">
+<img alt="Thomas und Clemens Glaeser, Gründer von mocotel services" class="hero-photo" loading="eager" src="assets/img/gruender-zwei.jpg"/>
+</div>
+</div>
+</div>
 </section>
-
 <section class="marquee-wrap">
-  <div class="marquee-lbl">Kunden &amp; Partner</div>
-  <div class="marquee-track">
-    <div class="marquee-row"><img src="assets/img/33.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/34.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/35.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/36.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/37.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/38.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/39.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/40.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/41.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/42.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/43.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/partner-microsoft.png" alt="Microsoft Partner" onerror="this.style.display='none'"><img src="assets/partner-gamma.png" alt="Gamma VoIP" onerror="this.style.display='none'"><img src="assets/partner-itsforkids.png" alt="Stiftung It's for Kids" onerror="this.style.display='none'"></div>
-    <div class="marquee-row" aria-hidden="true"><img src="assets/img/33.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/34.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/35.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/36.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/37.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/38.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/39.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/40.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/41.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/42.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/img/43.png" alt="Kundenlogo" onerror="this.style.display='none'"><img src="assets/partner-microsoft.png" alt="Microsoft Partner" onerror="this.style.display='none'"><img src="assets/partner-gamma.png" alt="Gamma VoIP" onerror="this.style.display='none'"><img src="assets/partner-itsforkids.png" alt="Stiftung It's for Kids" onerror="this.style.display='none'"></div>
-  </div>
+<div class="marquee-lbl">Kunden &amp; Partner</div>
+<div class="marquee-track">
+<div class="marquee-row"><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/33.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/34.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/35.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/36.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/37.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/38.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/39.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/40.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/41.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/42.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/43.png"/><img alt="Microsoft Partner" onerror="this.style.display='none'" src="assets/partner-microsoft.png"/><img alt="Gamma VoIP" onerror="this.style.display='none'" src="assets/partner-gamma.png"/><img alt="Stiftung It's for Kids" onerror="this.style.display='none'" src="assets/partner-itsforkids.png"/></div>
+<div aria-hidden="true" class="marquee-row"><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/33.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/34.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/35.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/36.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/37.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/38.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/39.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/40.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/41.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/42.png"/><img alt="Kundenlogo" onerror="this.style.display='none'" src="assets/img/43.png"/><img alt="Microsoft Partner" onerror="this.style.display='none'" src="assets/partner-microsoft.png"/><img alt="Gamma VoIP" onerror="this.style.display='none'" src="assets/partner-gamma.png"/><img alt="Stiftung It's for Kids" onerror="this.style.display='none'" src="assets/partner-itsforkids.png"/></div>
+</div>
 </section>
-
 <section class="sect bg-radial-jc has-fade-both" id="problem">
-  <div class="max-c">
-    <div class="sect-h">
-      <span class="kicker">Kommt Dir das bekannt vor?</span>
-      <h2>Das Wissen steckt in K&ouml;pfen, nicht in <br class="mbr">Deiner Firma.</h2>
-      <p>Du delegierst nicht zu wenig und Dein Team ist nicht zu unselbstst&auml;ndig. Es gibt nur keinen Ort, <br class="dbr">an dem Euer Wissen komplett liegt. Also f&uuml;hrt jeder Weg zur&uuml;ck zu Dir.</p>
-    </div>
-    <div class="pain-grid">
-      <div class="pain">
-        <h3>Alles h&auml;ngt an Dir.</h3>
-        <div class="punch">Erste Urlaubswoche. Das Handy klingelt.</div>
-        <p>Eine Kundenfrage, die nur Du beantworten kannst. Ein Angebot, das ohne Deine Freigabe nicht rausgeht. Das Wissen steckt in Deinem Kopf und nirgendwo sonst.</p>
-      </div>
-      <div class="pain">
-        <h3>Wissen l&auml;uft einfach raus.</h3>
-        <div class="punch">Peter k&uuml;ndigt, und mit ihm 12 Jahre.</div>
-        <p>Wenn ein Mitarbeiter geht, geht der Gro&szlig;teil seines Wissens mit. Was nur in K&ouml;pfen steckt, ist kein Asset, sondern ein Risiko, das irgendwann f&auml;llig wird.</p>
-      </div>
-      <div class="pain">
-        <h3>Suchen statt arbeiten.</h3>
-        <div class="punch">Eine halbe Stunde am Tag, pro Kopf.</div>
-        <p>Rechne es einmal f&uuml;r Deinen Betrieb durch: Wenn jeder t&auml;glich eine halbe Stunde nach Informationen sucht, sind das bei 10 Leuten &uuml;ber 25 Stunden pro Woche. Bezahlte Zeit, in der niemand etwas produziert.</p>
-      </div>
-    </div>
-    <div class="closer">
-      <strong>Wahrscheinlich hast Du sogar schon versucht, das zu l&ouml;sen.<br>Und es hat nicht gehalten. Daf&uuml;r gibt es einen Grund.</strong>
-      <a href="#check" data-track="cta_problem" class="btn">Mach den Engpass-Check <span class="btn-arrow">&rarr;</span></a>
-    </div>
-  </div>
+<div class="max-c">
+<div class="sect-h">
+<span class="kicker">Kommt Dir das bekannt vor?</span>
+<h2>Das Wissen steckt in Köpfen, nicht in <br class="mbr"/>Deiner Firma.</h2>
+<p>Du delegierst nicht zu wenig und Dein Team ist nicht zu unselbstständig. Es gibt nur keinen Ort, <br class="dbr"/>an dem Euer Wissen komplett liegt. Also führt jeder Weg zurück zu Dir.</p>
+</div>
+<div class="pain-grid">
+<div class="pain">
+<h3>Alles hängt an Dir.</h3>
+<div class="punch">Erste Urlaubswoche. Das Handy klingelt.</div>
+<p>Eine Kundenfrage, die nur Du beantworten kannst. Ein Angebot, das ohne Deine Freigabe nicht rausgeht. Das Wissen steckt in Deinem Kopf und nirgendwo sonst.</p>
+</div>
+<div class="pain">
+<h3>Wissen läuft einfach raus.</h3>
+<div class="punch">Peter kündigt, und mit ihm 12 Jahre.</div>
+<p>Wenn ein Mitarbeiter geht, geht der Großteil seines Wissens mit. Was nur in Köpfen steckt, ist kein Asset, sondern ein Risiko, das irgendwann fällig wird.</p>
+</div>
+<div class="pain">
+<h3>Suchen statt arbeiten.</h3>
+<div class="punch">Eine halbe Stunde am Tag, pro Kopf.</div>
+<p>Rechne es einmal für Deinen Betrieb durch: Wenn jeder täglich eine halbe Stunde nach Informationen sucht, sind das bei 10 Leuten über 25 Stunden pro Woche. Bezahlte Zeit, in der niemand etwas produziert.</p>
+</div>
+</div>
+<div class="closer">
+<strong>Wahrscheinlich hast Du sogar schon versucht, das zu lösen.<br/>Und es hat nicht gehalten. Dafür gibt es einen Grund.</strong>
+<a class="btn" data-track="cta_problem" href="#check">Mach den Engpass-Check <span class="btn-arrow">→</span></a>
+</div>
+</div>
 </section>
-
 <section class="sect bg-radial-soft has-fade-both" id="check">
-  <div class="max-c">
-    <div class="sect-h">
-      <span class="kicker">Der Engpass-Check</span>
-      <h2>Finde in 60 Sekunden raus, wie <span class="accent">abh&auml;ngig</span> Deine Firma von einzelnen K&ouml;pfen ist</h2>
-    </div>
-
-    <div class="quiz has-beam" id="quiz">
-      <div class="border-beam"></div>
-
-      <div class="quiz__top">
-        <button class="quiz__back" id="qzBack" type="button">&larr; zur&uuml;ck</button>
-        <span class="quiz__count" id="qzCount"></span>
-      </div>
-      <div class="quiz__progress"><div class="quiz__bar" id="qzBar"></div></div>
-
-      <!-- Intro -->
-      <div class="quiz-step on quiz__center" data-step="intro">
-        <h3 class="quiz__intro-h">Wie abh&auml;ngig ist Deine Firma von einzelnen K&ouml;pfen?</h3>
-        <p class="quiz__intro-p">8 kurze Fragen aus Deinem Alltag, 60 Sekunden, sofort Dein Ergebnis.</p>
-        <button class="btn lg" id="qzStart" type="button" data-track="quiz_start">Check starten <span class="btn-arrow">&rarr;</span></button>
-        <div class="quiz__meta">
-          <span><span class="ck">&#10003;</span> Kostenlos</span>
-          <span><span class="ck">&#10003;</span> Ohne Anmeldung</span>
-          <span><span class="ck">&#10003;</span> Ergebnis sofort</span>
-        </div>
-      </div>
-
-      <!-- Frage (wird per JS gefuellt) -->
-      <div class="quiz-step" data-step="question">
-        <h3 class="quiz__q" id="qzQ"></h3>
-        <div class="quiz__opts" id="qzOpts"></div>
-      </div>
-
-      <!-- Ergebnis -->
-      <div class="quiz-step quiz__center" data-step="result">
-        <div class="score"><b id="qzScore">0</b><span>von 14 Punkten</span></div>
-        <h3 class="res-h" id="qzResH"></h3>
-        <p class="res-p" id="qzResP"></p>
-        <div style="margin-top:26px"><button class="btn lg" id="qzToOptin" type="button" data-track="quiz_result_cta">Auswertung + Beweis holen <span class="btn-arrow">&rarr;</span></button></div>
-      </div>
-
-      <!-- Opt-in -->
-      <div class="quiz-step quiz__center" data-step="optin">
-        <h3 class="res-h">Wohin d&uuml;rfen wir Deine Auswertung schicken?</h3>
-        <p class="res-p">Du bekommst die ausf&uuml;hrliche Auswertung zu Deinen <b id="qzScore2">0</b> Punkten und den Link zum <b>15-Minuten-Beweis</b>, mit dem Du heute noch selbst erlebst, wie anders eine KI antwortet, sobald sie Firmenkontext hat.</p>
-        <form class="quiz__form" id="qzForm" novalidate>
-          <div>
-            <label for="qzName">Vorname</label>
-            <input type="text" id="qzName" name="firstname" autocomplete="given-name" placeholder="Dein Vorname" required>
-          </div>
-          <div>
-            <label for="qzMail">E-Mail</label>
-            <input type="email" id="qzMail" name="email" autocomplete="email" placeholder="name@firma.de" required>
-          </div>
-
-          <!-- ==========================================================
+<div class="max-c">
+<div class="sect-h">
+<span class="kicker">Der Engpass-Check</span>
+<h2>Finde in 60 Sekunden raus, wie <span class="accent">abhängig</span> Deine Firma von einzelnen Köpfen ist</h2>
+</div>
+<div class="quiz has-beam" id="quiz">
+<div class="border-beam"></div>
+<div class="quiz__top">
+<button class="quiz__back" id="qzBack" type="button">← zurück</button>
+<span class="quiz__count" id="qzCount"></span>
+</div>
+<div class="quiz__progress"><div class="quiz__bar" id="qzBar"></div></div>
+<!-- Intro -->
+<div class="quiz-step on quiz__center" data-step="intro">
+<h3 class="quiz__intro-h">Wie abhängig ist Deine Firma von einzelnen Köpfen?</h3>
+<p class="quiz__intro-p">8 kurze Fragen aus Deinem Alltag, 60 Sekunden, sofort Dein Ergebnis.</p>
+<button class="btn lg" data-track="quiz_start" id="qzStart" type="button">Check starten <span class="btn-arrow">→</span></button>
+<div class="quiz__meta">
+<span><span class="ck">✓</span> Kostenlos</span>
+<span><span class="ck">✓</span> Ohne Anmeldung</span>
+<span><span class="ck">✓</span> Ergebnis sofort</span>
+</div>
+</div>
+<!-- Frage (wird per JS gefuellt) -->
+<div class="quiz-step" data-step="question">
+<h3 class="quiz__q" id="qzQ"></h3>
+<div class="quiz__opts" id="qzOpts"></div>
+</div>
+<!-- Ergebnis -->
+<div class="quiz-step quiz__center" data-step="result">
+<div class="score"><b id="qzScore">0</b><span>von 14 Punkten</span></div>
+<h3 class="res-h" id="qzResH"></h3>
+<p class="res-p" id="qzResP"></p>
+<div style="margin-top:26px"><button class="btn lg" data-track="quiz_result_cta" id="qzToOptin" type="button">Auswertung + Beweis holen <span class="btn-arrow">→</span></button></div>
+</div>
+<!-- Opt-in -->
+<div class="quiz-step quiz__center" data-step="optin">
+<h3 class="res-h">Wohin dürfen wir Deine Auswertung schicken?</h3>
+<p class="res-p">Du bekommst die ausführliche Auswertung zu Deinen <b id="qzScore2">0</b> Punkten und den Link zum <b>15-Minuten-Beweis</b>, mit dem Du heute noch selbst erlebst, wie anders eine KI antwortet, sobald sie Firmenkontext hat.</p>
+<form class="quiz__form" id="qzForm" novalidate="">
+<div>
+<label for="qzName">Vorname</label>
+<input autocomplete="given-name" id="qzName" name="firstname" placeholder="Dein Vorname" required="" type="text"/>
+</div>
+<div>
+<label for="qzMail">E-Mail</label>
+<input autocomplete="email" id="qzMail" name="email" placeholder="name@firma.de" required="" type="email"/>
+</div>
+<!-- ==========================================================
                Erscheint ausschliesslich bei Score 10 bis 14 (band=hot).
                Optional, weil eine Nummer, die jemand fuer eine Mail
                hinterlaesst, keine Einwilligung in einen Anruf ist. Wer
                hier eine Nummer eintraegt, bittet aktiv um das Gespraech.
+               Sichtbar bei Score 5-14 (band=mid und band=hot), nie bei low.
+               Ueberschrift und Text werden per JS je Band gesetzt.
                ========================================================== -->
-          <div class="qz-phone" id="qzPhoneWrap" hidden>
-            <div class="qz-phone__head">
-              <strong>Dein Ergebnis ist deutlich.</strong>
-              <span>Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? F&uuml;nf Minuten, kein Verkaufsgespr&auml;ch.</span>
-            </div>
-            <label for="qzPhone">Telefon <span class="opt">&middot; optional</span></label>
-            <input type="tel" id="qzPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="Nur wenn Du angerufen werden willst">
-          </div>
-          <div class="quiz__err" id="qzErr">Bitte Vorname und eine g&uuml;ltige E-Mail-Adresse eintragen.</div>
-          <button class="btn lg pay" type="submit" data-track="quiz_optin">Auswertung + Beweis schicken <span class="btn-arrow">&rarr;</span></button>
-        </form>
-        <p class="quiz__hint">Sofort im Postfach: Deine ausf&uuml;hrliche Auswertung und der Link zum 15-Minuten-Beweis. Dazu h&ouml;chstens drei weitere Mails. Abmeldung jederzeit.<span id="qzHintPhone" hidden> Die Telefonnummer brauchen wir nur, wenn Du den Anruf willst.</span> Mehr in unserer <a href="https://mocotel.de/datenschutz" target="_blank" rel="noopener" style="color:var(--blue-soft);text-decoration:underline">Datenschutzerkl&auml;rung</a>.</p>
-      </div>
-
-    </div>
-  </div>
+<div class="qz-phone" hidden="" id="qzPhoneWrap">
+<div class="qz-phone__head">
+<strong id="qzPhoneH">Dein Ergebnis ist deutlich.</strong>
+<span id="qzPhoneP">Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? Fünf Minuten, kein Verkaufsgespräch.</span>
+</div>
+<label for="qzPhone">Telefon <span class="opt">· optional</span></label>
+<input autocomplete="tel" id="qzPhone" inputmode="tel" name="phone" placeholder="Nur wenn Du angerufen werden willst" type="tel"/>
+</div>
+<div class="quiz__err" id="qzErr">Bitte Vorname und eine gültige E-Mail-Adresse eintragen.</div>
+<button class="btn lg pay" data-track="quiz_optin" type="submit">Auswertung + Beweis schicken <span class="btn-arrow">→</span></button>
+</form>
+<p class="quiz__hint">Sofort im Postfach: Deine ausführliche Auswertung und der Link zum 15-Minuten-Beweis. Dazu höchstens drei weitere Mails. Abmeldung jederzeit.<span hidden="" id="qzHintPhone"> Die Telefonnummer brauchen wir nur, wenn Du den Anruf willst.</span> Mehr in unserer <a href="https://mocotel.de/datenschutz" rel="noopener" style="color:var(--blue-soft);text-decoration:underline" target="_blank">Datenschutzerklärung</a>.</p>
+</div>
+</div>
+</div>
 </section>
-
 </main>
-
 <footer>
-  <div class="max-c">
-    <div class="foot-top">
-      <img src="assets/mocotel-logo.png" alt="mocotel IT-Service &amp; Security" class="foot-logo">
-      <div class="foot-links">
-        <a href="#check">Engpass-Check</a><a href="mailto:info@mocotel.de">Kontakt</a><a href="https://mocotel.de/impressum" target="_blank" rel="noopener">Impressum</a><a href="https://mocotel.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a><a href="https://mocotel.de/agb/" target="_blank" rel="noopener">AGB</a>
-      </div>
-    </div>
-    <p class="disclaimer">Diese Website ist nicht Teil der Facebook-Website oder der Facebook Inc. Au&szlig;erdem wird diese Website in keiner Weise von Facebook unterst&uuml;tzt. FACEBOOK ist eine Marke von FACEBOOK, Inc.</p>
-    <p class="copyright">&copy; 2026 mocotel services. Alle Rechte vorbehalten.</p>
-  </div>
+<div class="max-c">
+<div class="foot-top">
+<img alt="mocotel IT-Service &amp; Security" class="foot-logo" src="assets/mocotel-logo.png"/>
+<div class="foot-links">
+<a href="#check">Engpass-Check</a><a href="mailto:info@mocotel.de">Kontakt</a><a href="https://mocotel.de/impressum" rel="noopener" target="_blank">Impressum</a><a href="https://mocotel.de/datenschutz" rel="noopener" target="_blank">Datenschutz</a><a href="https://mocotel.de/agb/" rel="noopener" target="_blank">AGB</a>
+</div>
+</div>
+<p class="disclaimer">Diese Website ist nicht Teil der Facebook-Website oder der Facebook Inc. Außerdem wird diese Website in keiner Weise von Facebook unterstützt. FACEBOOK ist eine Marke von FACEBOOK, Inc.</p>
+<p class="copyright">© 2026 mocotel services. Alle Rechte vorbehalten.</p>
+</div>
 </footer>
-
 <script>
 /* =====================================================================
    ENGPASS-CHECK  ·  Konfiguration
@@ -567,6 +573,17 @@ var QUIZ_CONFIG = {
     { max:14, band:"hot",  h:"Du bist das Ged&auml;chtnis Deiner Firma.",
       p:"Fast jede Antwort l&auml;uft &uuml;ber Deinen Kopf oder den einer einzelnen Person. Das ist der teuerste Engpass, den ein KMU haben kann. Und er w&auml;chst mit jedem neuen Mitarbeiter." }
   ];
+
+  var PHONE_COPY = {
+    hot: {
+      h: "Dein Ergebnis ist deutlich.",
+      p: "Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? F\u00fcnf Minuten, kein Verkaufsgespr\u00e4ch."
+    },
+    mid: {
+      h: "Willst Du Dein Ergebnis kurz besprechen?",
+      p: "Clemens ruft Dich an und geht mit Dir durch, welche Deiner Antworten im Urlaub oder bei einer K\u00fcndigung zuerst weh tut. F\u00fcnf Minuten, kein Verkaufsgespr\u00e4ch."
+    }
+  };
 
   var TOTAL = QUESTIONS.length;
   var answers = [], idx = 0, score = 0, band = "";
@@ -644,13 +661,19 @@ var QUIZ_CONFIG = {
   $("qzStart").addEventListener("click", function(){ idx = 0; render(); track("quiz_start"); });
   $("qzBack").addEventListener("click", function(){ if(idx>0){ idx--; render(); } });
   $("qzToOptin").addEventListener("click", function(){
-    /* Telefonfeld nur fuer Hot Leads (Score 10-14) */
+    /* Telefonfeld ab Score 5 (band mid und hot), bei low nie */
     var wrap = $("qzPhoneWrap");
     if(wrap){
-      var showPhone = (band === "hot");
+      var showPhone = (band === "hot" || band === "mid");
       wrap.hidden = !showPhone;
       var hp = $("qzHintPhone"); if(hp) hp.hidden = !showPhone;
-      if(!showPhone){ try{ $("qzPhone").value = ""; }catch(e){} }
+      if(showPhone){
+        var t = PHONE_COPY[band];
+        $("qzPhoneH").innerHTML = t.h;
+        $("qzPhoneP").innerHTML = t.p;
+      } else {
+        try{ $("qzPhone").value = ""; }catch(e){}
+      }
     }
     show("optin"); scrollToQuiz();
     setTimeout(function(){ try{ $("qzName").focus(); }catch(e){} }, 260);
@@ -716,7 +739,6 @@ var QUIZ_CONFIG = {
   setProgress(0);
 })();
 </script>
-
 <!-- ===== Anonyme Funnel-Views (cookieless, ohne Consent) ===== -->
 <script>
 (function(){
@@ -843,7 +865,6 @@ var QUIZ_CONFIG = {
 })();
 </script>
 <!-- ===== /First-Party Funnel-Tracking ===== -->
-
 <!-- ===== Cookie-Consent + Meta-Pixel (feuert nur nach Zustimmung) ===== -->
 <style>
 #cc-banner{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0A1730;border-top:1px solid rgba(127,176,255,.25);color:#fff;padding:18px 20px;font-size:.9rem;line-height:1.5;display:none;box-shadow:0 -10px 40px rgba(0,0,0,.45)}
@@ -857,14 +878,14 @@ var QUIZ_CONFIG = {
 .cc-btn.accept{background:linear-gradient(90deg,#1D3766,#3058A2);border-color:rgba(127,176,255,.45)}
 #cc-reopen{position:fixed;left:14px;bottom:14px;z-index:99998;font-size:.74rem;color:rgba(255,255,255,.55);background:rgba(10,23,48,.82);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:6px 11px;cursor:pointer;display:none;font-family:inherit}
 </style>
-<div id="cc-banner" role="dialog" aria-label="Cookie-Einstellungen">
-  <div id="cc-inner">
-    <div id="cc-text">Wir verwenden Cookies und den Meta-Pixel (Facebook/Instagram), um die Nutzung dieser Seite zu messen und unsere Werbung auszuwerten. Notwendige Cookies sind immer aktiv. Mehr in unserer <a href="https://mocotel.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</div>
-    <div id="cc-btns">
-      <button class="cc-btn" id="cc-decline" type="button">Nur notwendige</button>
-      <button class="cc-btn accept" id="cc-accept" type="button">Alle akzeptieren</button>
-    </div>
-  </div>
+<div aria-label="Cookie-Einstellungen" id="cc-banner" role="dialog">
+<div id="cc-inner">
+<div id="cc-text">Wir verwenden Cookies und den Meta-Pixel (Facebook/Instagram), um die Nutzung dieser Seite zu messen und unsere Werbung auszuwerten. Notwendige Cookies sind immer aktiv. Mehr in unserer <a href="https://mocotel.de/datenschutz" rel="noopener" target="_blank">Datenschutzerklärung</a>.</div>
+<div id="cc-btns">
+<button class="cc-btn" id="cc-decline" type="button">Nur notwendige</button>
+<button class="cc-btn accept" id="cc-accept" type="button">Alle akzeptieren</button>
+</div>
+</div>
 </div>
 <button id="cc-reopen" type="button">Cookie-Einstellungen</button>
 <script>
@@ -899,6 +920,5 @@ var QUIZ_CONFIG = {
 })();
 </script>
 <!-- ===== /Cookie-Consent + Meta-Pixel ===== -->
-
 </body>
 </html>

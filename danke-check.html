@@ -1,15 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deine Auswertung ist unterwegs &middot; mocotel</title>
-<meta name="description" content="Deine Auswertung zum Engpass-Check und der 15-Minuten-Beweis sind unterwegs.">
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#0E2240">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deine Auswertung ist unterwegs · mocotel</title>
+<meta content="Deine Auswertung zum Engpass-Check und der 15-Minuten-Beweis sind unterwegs." name="description"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="#0E2240" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --navy:#0E2240;--navy-2:#0A1730;--panel:rgba(255,255,255,.045);--panel-2:rgba(9,19,37,.55);
@@ -289,6 +290,22 @@ br.mbr{display:none}
   .price-row .price{font-size:2.6rem}
 }
 @media(prefers-reduced-motion:reduce){.border-beam::before,.marquee-track,.logo-marquee__track{animation:none}}
+
+/* ===== Typografie: keine Einzelwort-Zeilen =====================
+   balance verteilt Ueberschriften gleichmaessig auf ihre Zeilen,
+   pretty verhindert im Fliesstext eine letzte Zeile mit nur einem Wort.
+   Faellt in aelteren Browsern sauber auf normales Umbrechen zurueck. */
+h1,h2,h3,h4,h5,blockquote,summary,
+.punch,.hero-subhead,.res-h,.fazit,.amount,.closer strong,.noabo,
+.quiz__q,.quiz__intro-h,.dk-card h3,.step h3,.feat h3,.ben h3,.pain h3,
+.inside-card h3,.price-card h3,.extra h3,.schluss h2,.final h2,.sect-h h2{
+  text-wrap:balance;
+}
+p,li,span,label,figcaption,
+.sub,.desc,.wie,.quiz__hint,.ip-note,.inside-trust,.placeholder-note,
+.dauer,.lab,.who,.dk-next li,.erw li,.vor li,.quiz__intro-p,.res-p{
+  text-wrap:pretty;
+}
 </style>
 <style>
 .dk{max-width:720px;margin:0 auto;text-align:center}
@@ -308,66 +325,58 @@ br.mbr{display:none}
 </style>
 </head>
 <body>
-
 <header class="site-header">
-  <nav class="site-nav">
-    <img src="assets/mocotel-logo.png" alt="mocotel IT-Service &amp; Security" class="logo-img">
-  </nav>
+<nav class="site-nav">
+<img alt="mocotel IT-Service &amp; Security" class="logo-img" src="assets/mocotel-logo.png"/>
+</nav>
 </header>
-
 <main>
 <section class="sect-wide bg-radial-jc has-fade-bottom">
-  <div class="max-c dk">
-    <div class="mail-ico">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M3.5 7.5L12 13l8.5-5.5"/></svg>
-    </div>
-    <h1 id="dkH">Schau in Dein Postfach, <span class="accent">Deine Auswertung</span> ist unterwegs.</h1>
-    <p id="dkScore" class="hide"></p>
-    <p>Die Mail ist unterwegs. Aber Du musst nicht darauf warten: der <b style="color:#fff">15-Minuten-Beweis</b> liegt direkt hier. Drei Copy-Paste-Prompts und eine Beispiel-Vorlage, mit denen Du heute noch selbst erlebst, wie anders eine KI antwortet, sobald sie Firmenkontext hat.</p>
-    <a href="beweis.html" class="btn lg" data-track="danke_to_beweis" style="margin-top:8px">Zum 15-Minuten-Beweis <span class="btn-arrow">&rarr;</span></a>
-
-    <ul class="dk-next">
-      <li><span class="n">01</span><span><b>Postfach &ouml;ffnen.</b> Die Mail mit Deiner Auswertung kommt sofort. Nichts da? Schau kurz im Spam nach und markiere uns als „kein Spam".</span></li>
-      <li><span class="n">02</span><span><b>15 Minuten einplanen.</b> Heute, nicht irgendwann. L&auml;nger dauert der Beweis nicht. Am Rechner, nicht am Handy.</span></li>
-      <li><span class="n">03</span><span><b>Alles Weitere steht in der Auswertung.</b> Sie ordnet Deine Punktzahl ein und zeigt, wo es bei Euch am teuersten wird.</span></li>
-    </ul>
-
-    <!-- Nur bei Score 10-14 sichtbar -->
-    <div class="dk-card has-beam hide" id="dkHot">
-      <div class="border-beam"></div>
-      <span class="k">Weil Dein Ergebnis deutlich ist</span>
-      <h3>Clemens meldet sich heute kurz pers&ouml;nlich bei Dir.</h3>
-      <p>Dein Check zeigt, dass bei Euch fast alles &uuml;ber einzelne K&ouml;pfe l&auml;uft. Clemens von mocotel geht mit Dir durch, welche Deiner Antworten am meisten kostet. Dauert keine f&uuml;nf Minuten.</p>
-      <!-- Reaktionszeit mit Clemens best&auml;tigen, bevor das live geht. -->
-    </div>
-
-    <!-- Score 10-14, aber keine Telefonnummer hinterlassen -->
-    <div class="dk-card hide" id="dkHotNoCall">
-      <span class="k">Weil Dein Ergebnis deutlich ist</span>
-      <h3>Wenn Du willst, schauen wir gemeinsam drauf.</h3>
-      <p>Dein Check zeigt, dass bei Euch fast alles &uuml;ber einzelne K&ouml;pfe l&auml;uft. Wenn Du wissen willst, welche Deiner Antworten am meisten kostet: antworte einfach auf die Mail, die gerade rausgeht. Clemens ruft Dich dann kurz zur&uuml;ck, f&uuml;nf Minuten, kein Verkaufsgespr&auml;ch.</p>
-    </div>
-
-    <div class="dk-quiet">
-      <p style="margin-bottom:18px">Du willst nicht warten und das Ged&auml;chtnis Deiner Firma direkt einrichten?</p>
-      <a href="starterset.html" class="btn ghost" data-track="danke_to_starterset">Zum Starterset (97 &euro;) <span class="btn-arrow">&rarr;</span></a>
-    </div>
-  </div>
+<div class="max-c dk">
+<div class="mail-ico">
+<svg fill="none" height="34" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24" width="34"><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><path d="M3.5 7.5L12 13l8.5-5.5"></path></svg>
+</div>
+<h1 id="dkH">Schau in Dein Postfach, <span class="accent">Deine Auswertung</span><br/>ist unterwegs.</h1>
+<p class="hide" id="dkScore"></p>
+<p>Die Mail ist unterwegs. Aber Du musst nicht darauf warten: der <b style="color:#fff">15-Minuten-Beweis</b> liegt direkt hier. Drei Copy-Paste-Prompts und eine Beispiel-Vorlage, mit denen Du heute noch selbst erlebst, wie anders eine KI antwortet, sobald sie Firmenkontext hat.</p>
+<a class="btn lg" data-track="danke_to_beweis" href="beweis.html" style="margin-top:8px">Zum 15-Minuten-Beweis <span class="btn-arrow">→</span></a>
+<ul class="dk-next">
+<li><span class="n">01</span><span><b>Postfach öffnen.</b> Die Mail mit Deiner Auswertung kommt sofort. Nichts da? Schau kurz im Spam nach und markiere uns als „kein Spam".</span></li>
+<li><span class="n">02</span><span><b>15 Minuten einplanen.</b> Heute, nicht irgendwann. Länger dauert der Beweis nicht. Am Rechner, nicht am Handy.</span></li>
+<li><span class="n">03</span><span><b>Alles Weitere steht in der Auswertung.</b> Sie ordnet Deine Punktzahl ein und zeigt, wo es bei Euch am teuersten wird.</span></li>
+</ul>
+<!-- Sichtbar, wenn eine Telefonnummer hinterlassen wurde (Score 5-14) -->
+<div class="dk-card has-beam hide" id="dkHot">
+<div class="border-beam"></div>
+<span class="k" id="dkCallK">Weil Dein Ergebnis deutlich ist</span>
+<h3 id="dkCallH">Clemens meldet sich heute kurz persönlich bei Dir.</h3>
+<p id="dkCallP">Dein Check zeigt, dass bei Euch fast alles über einzelne Köpfe läuft. Clemens von mocotel geht mit Dir durch, welche Deiner Antworten am meisten kostet. Dauert keine fünf Minuten.</p>
+<!-- Reaktionszeit mit Clemens best&auml;tigen, bevor das live geht. -->
+</div>
+<!-- Score 10-14, aber keine Telefonnummer hinterlassen -->
+<div class="dk-card hide" id="dkHotNoCall">
+<span class="k">Weil Dein Ergebnis deutlich ist</span>
+<h3>Wenn Du willst, schauen wir gemeinsam drauf.</h3>
+<p>Dein Check zeigt, dass bei Euch fast alles über einzelne Köpfe läuft. Wenn Du wissen willst, welche Deiner Antworten am meisten kostet: antworte einfach auf die Mail, die gerade rausgeht. Clemens ruft Dich dann kurz zurück, fünf Minuten, kein Verkaufsgespräch.</p>
+</div>
+<div class="dk-quiet">
+<p style="margin-bottom:18px">Du willst nicht warten und das Gedächtnis Deiner Firma direkt einrichten?</p>
+<a class="btn ghost" data-track="danke_to_starterset" href="starterset.html">Zum Starterset (97 €) <span class="btn-arrow">→</span></a>
+</div>
+</div>
 </section>
 </main>
-
 <footer>
-  <div class="max-c">
-    <div class="foot-top">
-      <img src="assets/mocotel-logo.png" alt="mocotel IT-Service &amp; Security" class="foot-logo">
-      <div class="foot-links">
-        <a href="mailto:info@mocotel.de">Kontakt</a><a href="https://mocotel.de/impressum" target="_blank" rel="noopener">Impressum</a><a href="https://mocotel.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a><a href="https://mocotel.de/agb/" target="_blank" rel="noopener">AGB</a>
-      </div>
-    </div>
-    <p class="copyright">&copy; 2026 mocotel services. Alle Rechte vorbehalten.</p>
-  </div>
+<div class="max-c">
+<div class="foot-top">
+<img alt="mocotel IT-Service &amp; Security" class="foot-logo" src="assets/mocotel-logo.png"/>
+<div class="foot-links">
+<a href="mailto:info@mocotel.de">Kontakt</a><a href="https://mocotel.de/impressum" rel="noopener" target="_blank">Impressum</a><a href="https://mocotel.de/datenschutz" rel="noopener" target="_blank">Datenschutz</a><a href="https://mocotel.de/agb/" rel="noopener" target="_blank">AGB</a>
+</div>
+</div>
+<p class="copyright">© 2026 mocotel services. Alle Rechte vorbehalten.</p>
+</div>
 </footer>
-
 <script>
 (function(){
   var p = new URLSearchParams(location.search);
@@ -377,21 +386,39 @@ br.mbr{display:none}
 
   if(name){
     document.getElementById("dkH").innerHTML =
-      name.replace(/[<>]/g,"") + ", schau in Dein Postfach.<br><span class=\"accent\">Deine Auswertung</span> ist unterwegs.";
+      name.replace(/[<>]/g,"") + ", schau in Dein Postfach.<br><span class=\"accent\">Deine Auswertung</span><br>ist\u00a0unterwegs.";
   }
   if(!isNaN(score)){
     var el = document.getElementById("dkScore");
     el.innerHTML = "Dein Ergebnis: <b style=\"color:#fff\">" + score + " von 14 Punkten</b>.";
     el.classList.remove("hide");
   }
-  /* Drei Zust\u00e4nde: hot mit Nummer, hot ohne Nummer, alles andere */
-  if(band === "hot"){
-    var wantsCall = p.get("call") === "1";
-    document.getElementById(wantsCall ? "dkHot" : "dkHotNoCall").classList.remove("hide");
+  /* Anruf-Block: nur wenn eine Nummer hinterlassen wurde (Score 5-14).
+     Ohne Nummer bekommt nur der heisseste Score den weichen Rueckkanal. */
+  var CALL_COPY = {
+    hot: {
+      k: "Weil Dein Ergebnis deutlich ist",
+      h: "Clemens meldet sich heute kurz pers\u00f6nlich bei\u00a0Dir.",
+      p: "Dein Check zeigt, dass bei Euch fast alles \u00fcber einzelne K\u00f6pfe l\u00e4uft. Clemens von mocotel geht mit Dir durch, welche Deiner Antworten am meisten kostet. Dauert keine f\u00fcnf\u00a0Minuten."
+    },
+    mid: {
+      k: "Weil Du danach gefragt hast",
+      h: "Clemens meldet sich morgen kurz bei\u00a0Dir.",
+      p: "Er geht mit Dir durch, welche Deiner Antworten im Urlaub oder bei einer K\u00fcndigung zuerst weh tut. Dauert keine f\u00fcnf Minuten, und es ist kein\u00a0Verkaufsgespr\u00e4ch."
+    }
+  };
+  var wantsCall = p.get("call") === "1";
+  if(wantsCall && CALL_COPY[band]){
+    var c = CALL_COPY[band];
+    document.getElementById("dkCallK").innerHTML = c.k;
+    document.getElementById("dkCallH").innerHTML = c.h;
+    document.getElementById("dkCallP").innerHTML = c.p;
+    document.getElementById("dkHot").classList.remove("hide");
+  } else if(band === "hot"){
+    document.getElementById("dkHotNoCall").classList.remove("hide");
   }
 })();
 </script>
-
 <!-- ===== Anonyme Funnel-Views (cookieless, ohne Consent) ===== -->
 <script>
 (function(){
@@ -518,7 +545,6 @@ br.mbr{display:none}
 })();
 </script>
 <!-- ===== /First-Party Funnel-Tracking ===== -->
-
 <!-- ===== Cookie-Consent + Meta-Pixel (feuert nur nach Zustimmung) ===== -->
 <style>
 #cc-banner{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:#0A1730;border-top:1px solid rgba(127,176,255,.25);color:#fff;padding:18px 20px;font-size:.9rem;line-height:1.5;display:none;box-shadow:0 -10px 40px rgba(0,0,0,.45)}
@@ -532,14 +558,14 @@ br.mbr{display:none}
 .cc-btn.accept{background:linear-gradient(90deg,#1D3766,#3058A2);border-color:rgba(127,176,255,.45)}
 #cc-reopen{position:fixed;left:14px;bottom:14px;z-index:99998;font-size:.74rem;color:rgba(255,255,255,.55);background:rgba(10,23,48,.82);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:6px 11px;cursor:pointer;display:none;font-family:inherit}
 </style>
-<div id="cc-banner" role="dialog" aria-label="Cookie-Einstellungen">
-  <div id="cc-inner">
-    <div id="cc-text">Wir verwenden Cookies und den Meta-Pixel (Facebook/Instagram), um die Nutzung dieser Seite zu messen und unsere Werbung auszuwerten. Notwendige Cookies sind immer aktiv. Mehr in unserer <a href="https://mocotel.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.</div>
-    <div id="cc-btns">
-      <button class="cc-btn" id="cc-decline" type="button">Nur notwendige</button>
-      <button class="cc-btn accept" id="cc-accept" type="button">Alle akzeptieren</button>
-    </div>
-  </div>
+<div aria-label="Cookie-Einstellungen" id="cc-banner" role="dialog">
+<div id="cc-inner">
+<div id="cc-text">Wir verwenden Cookies und den Meta-Pixel (Facebook/Instagram), um die Nutzung dieser Seite zu messen und unsere Werbung auszuwerten. Notwendige Cookies sind immer aktiv. Mehr in unserer <a href="https://mocotel.de/datenschutz" rel="noopener" target="_blank">Datenschutzerklärung</a>.</div>
+<div id="cc-btns">
+<button class="cc-btn" id="cc-decline" type="button">Nur notwendige</button>
+<button class="cc-btn accept" id="cc-accept" type="button">Alle akzeptieren</button>
+</div>
+</div>
 </div>
 <button id="cc-reopen" type="button">Cookie-Einstellungen</button>
 <script>
@@ -574,6 +600,5 @@ br.mbr{display:none}
 })();
 </script>
 <!-- ===== /Cookie-Consent + Meta-Pixel ===== -->
-
 </body>
 </html>
