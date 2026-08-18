@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Das Firmen-Gedächtnis · Starterset · mocotel</title>
-<meta name="description" content="Das Firmen-Gedächtnis: eine KI, die ausschließlich Euer eigenes Firmenwissen kennt und jede Frage in Sekunden beantwortet, mit Quelle. Starterset inkl. 20-Minuten-Setup-Call, einmalig 97 € im Einführungsprogramm.">
+<meta name="description" content="Das Firmen-Gedächtnis: eine KI, die ausschließlich Euer eigenes Firmenwissen kennt und jede Frage in Sekunden beantwortet, mit Quelle. Starterset inkl. Video-Kurs mit 53 Videos und 20-Minuten-Setup-Call. Einmalig 97 € statt 249 €.">
 <meta name="theme-color" content="#0E2240">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -287,6 +287,25 @@ br.mbr{display:none}
   .reviews img{height:50px}
   .price-row .price{font-size:2.6rem}
 }
+#team h2{margin-bottom:16px}
+#team .team-cred{margin-top:26px}
+#whats-inside .inside-grid{align-items:start;gap:60px}
+#whats-inside .sect-h h2{font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.16;letter-spacing:-.02em}
+#whats-inside .inside-grid ul{gap:20px}
+#whats-inside .inside-grid li strong{font-size:1.02rem;line-height:1.35}
+#whats-inside .inside-grid li .jargon{font-weight:400;color:var(--muted);font-size:.9rem}
+.inside-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
+.ip-now{font-size:2.7rem;font-weight:700;letter-spacing:-.025em;line-height:1}
+.ip-old{font-size:1.25rem;color:var(--muted);text-decoration:line-through}
+.ip-note{flex-basis:100%;font-size:.88rem;color:var(--muted);margin-top:4px}
+.inside-trust{font-size:.82rem;color:var(--muted);margin-top:15px;line-height:1.5}
+@media(min-width:881px){#whats-inside .inside-card{position:sticky;top:92px}}
+@media(max-width:880px){#whats-inside .inside-grid{gap:34px}.ip-now{font-size:2.3rem}}
+.photo-slot{position:relative;border-radius:20px;overflow:hidden;border:1px dashed rgba(127,176,255,.35);aspect-ratio:4/3;background:linear-gradient(160deg,rgba(48,88,162,.16),rgba(9,19,37,.55));display:flex;align-items:center;justify-content:center;text-align:center;padding:26px}
+.photo-slot__inner{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:36ch;color:var(--muted)}
+.photo-slot__inner svg{color:var(--blue-soft)}
+.photo-slot__inner strong{color:#fff;font-size:1.02rem}
+.photo-slot__inner span{font-size:.9rem;line-height:1.45}
 .video-slot{max-width:860px;margin:34px auto 0;aspect-ratio:16/9;border-radius:18px;border:1px dashed rgba(127,176,255,.35);background:linear-gradient(160deg,rgba(48,88,162,.16),rgba(9,19,37,.55));display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
 .video-slot__inner{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:44ch;color:var(--muted)}
 .video-slot__inner svg{color:var(--blue-soft)}
@@ -315,7 +334,7 @@ br.mbr{display:none}
 <section class="hero has-fade-bottom">
   <div class="inner hero-grid">
     <div class="hero-left">
-    <span class="badge">Einführungsprogramm · 97 € einmalig, inkl. Setup-Call</span>
+    <span class="badge">Einführungsprogramm · 97 € statt 249 €</span>
     <h1>Das <span class="accent">Firmen-Gedächtnis</span><br>für Dein KMU.</h1>
     <p class="sub"><span class="hero-subhead">Ein Speicher lagert. Ein Gedächtnis antwortet.</span>Eine KI, die ausschließlich Euer eigenes Firmenwissen kennt und die Fragen Deines Teams in Sekunden beantwortet, mit Quelle. Damit Dein Team das System fragt statt Dich. In unter 2 Stunden eingerichtet, gemeinsam mit uns im Setup-Call.</p>
     <div class="hero-cta">
@@ -324,7 +343,7 @@ br.mbr{display:none}
     </div>
     <div class="hero-meta">
       <span><span class="ck">✓</span> Einmalig 97 €, kein Abo, kostenlose Updates</span>
-      <span><span class="ck">✓</span> Inklusive 20-Minuten-Setup-Call mit uns</span>
+      <span><span class="ck">✓</span> Kompletter Video-Kurs (53 Videos) und 20-Minuten-Setup-Call inklusive</span>
       <span><span class="ck">✓</span> Von einem IT-Systemhaus mit über 10 Jahren Praxis</span>
       <span><span class="ck">✓</span> Mit jeder KI nutzbar: Claude, ChatGPT, Gemini</span>
     </div>
@@ -414,9 +433,9 @@ br.mbr{display:none}
     </div>
 
     <!-- ==========================================================
-         TODO vor Livegang: Demo-Video (60-90 Sek. Bildschirmaufnahme)
-         einbetten. Datei nach assets/demo.mp4 legen, dann den
-         Platzhalter unten durch das <video>-Element ersetzen.
+         Video-Slot: Bildschirmaufnahme 60 bis 90 Sekunden.
+         Datei nach assets/demo.mp4 legen, dann den Platzhalter unten
+         durch das <video>-Element darunter ersetzen.
          ========================================================== -->
     <div class="video-slot" id="demo">
       <div class="video-slot__inner">
@@ -516,7 +535,7 @@ br.mbr{display:none}
       </div>
       <div class="cmp good has-beam"><div class="border-beam"></div>
         <div class="tag">Mit mocotel</div>
-        <div class="amount">Mit dem Firmen-Gedächtnis</div>
+        <div class="amount">Einmalig 97 € statt 249 €</div>
         <ul>
           <li><span class="m">✓</span> Jede Antwort in Sekunden, Dein Team arbeitet wieder statt zu suchen.</li>
           <li><span class="m">✓</span> Keiner muss mehr zu Dir, Du hast endlich <br class="dbr">den Kopf frei.</li>
@@ -549,9 +568,20 @@ br.mbr{display:none}
 
 <section class="sect" id="team">
   <div class="team-grid">
-    <div class="team-photo">
-      <img src="assets/img/gruender-zwei.jpg" alt="Die Gründer von mocotel services" loading="lazy" onerror="this.closest('.team-photo').style.display='none'">
+    <!-- ==========================================================
+         Bild-Slot: gruender-zwei.jpg sitzt schon im Hero, deshalb hier
+         ein Platzhalter statt derselben Aufnahme zweimal auf einer Seite.
+         Neues Bild nach assets/img/team-buero.jpg legen und die zwei
+         Zeilen darunter tauschen (Platzhalter raus, <img> rein).
+         ========================================================== -->
+    <div class="photo-slot">
+      <div class="photo-slot__inner">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 012-2h3l1.5-2h5L19 5h0a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
+        <strong>Bild-Slot: Team oder Büro</strong>
+        <span>Andere Aufnahme als im Hero. Zum Beispiel Thomas und Clemens im Büro, das Team, oder der Standort Korschenbroich. Querformat 4:3.</span>
+      </div>
     </div>
+    <!-- <div class="team-photo"><img src="assets/img/team-buero.jpg" alt="Das Team von mocotel services" loading="lazy" onerror="this.closest('.team-photo').style.display='none'"></div> -->
     <div>
       <span class="kicker">Wer dahinter steckt</span>
       <h2>Ein inhabergeführtes <span class="accent">IT-Systemhaus</span>.<br>Kein Tool-Anbieter.</h2>
@@ -572,18 +602,25 @@ br.mbr{display:none}
         <p>Alles, um das Gedächtnis Deiner Firma einzurichten.<br>Einmal eingerichtet, dauerhaft nutzbar.</p>
       </div>
       <ul>
-        <li><div class="b">01</div><div><strong>Fertiger Obsidian-Vault</strong><span>Sofort einsatzbereite Grundstruktur, die mit Deinem Team mitwächst.</span></div></li>
-        <li><div class="b">02</div><div><strong>Vorgefertigtes Skills-Package</strong><span>Liest und schreibt im Vault, erledigt wiederkehrende Aufgaben automatisch, inkl. Anleitung.</span></div></li>
-        <li><div class="b">03</div><div><strong>KI-Anbindung mit Quelle</strong><span>Jede Frage in Sekunden beantwortet, auf Basis Deines echten Firmenwissens.</span></div></li>
-        <li><div class="b">04</div><div><strong>Schritt-für-Schritt Setup-Guide</strong><span>In unter 2 Stunden startklar, auch ohne Programmierkenntnisse.</span></div></li>
+        <li><div class="b">01</div><div><strong>Euer Wissen bekommt einen Ort</strong><span>Die komplette Grundstruktur steht schon, Ihr sortiert nur noch Eure Dokumente, Abläufe und Kundeninfos ein. <span class="jargon">(technisch: ein fertiger Obsidian-Vault)</span></span></div></li>
+        <li><div class="b">02</div><div><strong>Wiederkehrende Aufgaben laufen automatisch</strong><span>Aus einem Meeting wird ein Protokoll, aus Notizen ein Bericht. Einmal eingerichtet, danach auf Knopfdruck, mit Anleitung für jeden Ablauf. <span class="jargon">(technisch: ein vorgefertigtes Skills-Package)</span></span></div></li>
+        <li><div class="b">03</div><div><strong>Jede Frage in Sekunden beantwortet, mit Quelle</strong><span>Claude, ChatGPT oder Gemini antworten aus Eurem eigenen Firmenwissen und zeigen, aus welchem Dokument die Antwort stammt. <span class="jargon">(technisch: die KI-Anbindung an Euren Wissensspeicher)</span></span></div></li>
+        <li><div class="b">04</div><div><strong>Schritt-für-Schritt-Anleitung plus kompletter Video-Kurs</strong><span>53 Videos in 8 Modulen: Clemens richtet das Firmen-Gedächtnis einmal vollständig vor der Kamera ein, Du klickst einfach mit. In unter 2 Stunden startklar, ohne Programmierkenntnisse.</span></div></li>
         <li><div class="b">05</div><div><strong>20-Minuten-Setup-Call mit uns</strong><span>Falls Du irgendwo hängst, richten wir es gemeinsam ein. Termin direkt nach dem Kauf wählbar.</span></div></li>
       </ul>
     </div>
-    <div class="inside-card">
+    <div class="inside-card has-beam">
+      <div class="border-beam"></div>
       <div class="k">Das Ergebnis</div>
       <h3>„In 2 Stunden zu einer KI,<br>die Dich nie wieder vergisst."</h3>
-      <p>Aus 30 Minuten Suche werden 30 Sekunden. Kein Nachfragen, kein Wissen, das in einzelnen Köpfen steckt. Ein Firmen-Gedächtnis, auf das sich alle verlassen.</p>
-      <div style="margin-top:26px"><a href="https://buy.stripe.com/eVq14m8iC8NBeucbUW0co03" data-track="stripe_checkout" class="btn cta-stripe">Hol Dir das Starterset (97 €) <span class="btn-arrow">→</span></a></div>
+      <p>Aus einer halben Stunde Suchen werden 30 Sekunden. Kein Nachfragen, kein Wissen, das nur in einzelnen Köpfen steckt. Ein Firmen-Gedächtnis, auf das sich alle verlassen.</p>
+      <div class="inside-price">
+        <span class="ip-now">97 €</span>
+        <span class="ip-old">249 €</span>
+        <span class="ip-note">Einmalig im Einführungsprogramm. Kein Abo, kostenlose Updates inklusive.</span>
+      </div>
+      <div style="margin-top:24px"><a href="https://buy.stripe.com/eVq14m8iC8NBeucbUW0co03" data-track="stripe_checkout" class="btn cta-stripe pay">Hol Dir das Starterset (97 €) <span class="btn-arrow">→</span></a></div>
+      <p class="inside-trust">🔒 Sichere Bezahlung über Stripe · sofortiger Zugang · Setup-Call-Termin direkt nach dem Kauf wählbar</p>
     </div>
   </div>
 </section>
@@ -597,7 +634,7 @@ br.mbr{display:none}
     </div>
     <div class="steps-grid">
       <div class="step"><div class="step-n">01</div><h3>Kaufen</h3><p>Einmalig 97 € im Einführungsprogramm. Kein Abo, kein Kleingedrucktes. Sofort kompletter Zugang <br class="mbr">zum Starterset.</p></div>
-      <div class="step"><div class="step-n">02</div><h3>Einrichten</h3><p>Vault, Automatisierungen und KI-Anbindung mit dem Schritt-für-Schritt-Guide installieren. In unter 2 Stunden, <br class="dbr">ohne Programmierkenntnisse. Wenn Du hängst: Setup-Call.</p></div>
+      <div class="step"><div class="step-n">02</div><h3>Einrichten</h3><p>Mit dem Video-Kurs mitklicken: 53 Videos, in denen Clemens alles einmal vormacht. In unter 2 Stunden, <br class="dbr">ohne Programmierkenntnisse. Wenn Du hängst: Setup-Call.</p></div>
       <div class="step"><div class="step-n">03</div><h3>Nutzen</h3><p>Jeder im Team fragt, das Firmen-Gedächtnis antwortet in Sekunden, mit Quelle. Dauerhaft, lebenslang.</p></div>
     </div>
     <div class="center-cta"><a href="https://buy.stripe.com/eVq14m8iC8NBeucbUW0co03" data-track="stripe_checkout" class="btn cta-stripe">Hol Dir das Starterset (97 €) <span class="btn-arrow">→</span></a></div>
@@ -615,15 +652,15 @@ br.mbr{display:none}
     <div class="price-card has-beam">
       <div class="border-beam"></div>
       <h3>Das Firmen-Gedächtnis · Starterset</h3>
-      <p class="desc">Alles, um das Gedächtnis Deiner Firma einzurichten: <br class="dbr">fertige Struktur, Automatisierungen, KI-Anbindung, <br class="dbr">Anleitung und der Setup-Call mit uns.</p>
+      <p class="desc">Alles, um das Gedächtnis Deiner Firma einzurichten: <br class="dbr">fertige Struktur, Automatisierungen, KI-Anbindung, <br class="dbr">Video-Kurs und der Setup-Call mit uns.</p>
       <div class="price-row">
-        <span class="price">97 €</span><span class="price-tag">einmalig · Einführungsprogramm</span>
+        <span class="price">97 €</span><span class="price-old">249 €</span><span class="price-tag">einmalig · Einführungsprogramm</span>
       </div>
       <ul class="feature-list">
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span><b>Der fertige Wissensspeicher</b> (technisch: ein Obsidian-Vault), Grundstruktur steht, Ihr füllt nur noch ein</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span><b>Fertige Automatisierungen</b>, die wiederkehrende Aufgaben übernehmen</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span><b>Antworten in Sekunden</b>, mit Quelle statt langem Suchen</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span><b>Schritt-für-Schritt-Anleitung</b>, in unter 2 Stunden startklar</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span><b>Schritt-für-Schritt-Anleitung plus Video-Kurs</b>, 53 Videos in 8 Modulen, in unter 2 Stunden startklar</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span><b>20-Minuten-Setup-Call mit uns</b>, falls Du irgendwo hängst</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span>Einmalig, kein Abo, lebenslang nutzbar</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4.5 4.5L20 6"/></svg><span>Kostenlose Updates inklusive</span></li>
@@ -632,7 +669,7 @@ br.mbr{display:none}
         <a href="https://buy.stripe.com/eVq14m8iC8NBeucbUW0co03" class="btn lg cta-stripe" data-track="stripe_checkout">Hol Dir das Starterset (97 &euro;) <span class="btn-arrow">&rarr;</span></a>
       </div>
       <div class="placeholder-note">🔒 Sichere Bezahlung über Stripe · sofortiger Zugang · Setup-Call-Termin direkt nach dem Kauf wählbar.</div>
-      <p class="placeholder-note" style="margin-top:14px;line-height:1.5">Der Setup-Call ist auf <b>[ZAHL]</b> Unternehmen begrenzt, mehr schaffen wir zu zweit nicht persönlich. Danach fällt der Call aus dem Paket und der Preis steigt auf <b>[REGULÄRER PREIS]</b>.<br><span style="opacity:.6">TODO: beide Werte mit Thomas/Clemens festlegen und hier eintragen.</span></p>
+      <p class="placeholder-note" style="margin-top:14px;line-height:1.5">Der Setup-Call ist auf <b>50 Unternehmen</b> begrenzt, mehr schaffen wir zu zweit nicht persönlich. Danach fällt der Call aus dem Paket und der Preis steigt auf <b>249 €</b>.</p>
     </div>
     <div class="noabo">Kein Abo. Einmal zahlen, für immer nutzen.</div>
     <div class="trust-icons">
@@ -647,8 +684,8 @@ br.mbr{display:none}
   <div class="max-c">
     <div class="sect-h"><span class="kicker">FAQ</span><h2>Häufige Fragen</h2></div>
     <div class="faq-list">
-      <details open><summary>Was kostet das?</summary><p>Der Engpass-Check und der <a href="beweis.html" style="color:#7FB0FF;text-decoration:underline">15-Minuten-Beweis</a> kosten nichts. Das komplette Starterset „Das Firmen-Gedächtnis" kostet einmalig 97 € im Einführungsprogramm, ohne Abo, mit persönlichem Setup-Call. Der Setup-Call ist auf [ZAHL] Unternehmen begrenzt, mehr schaffen wir zu zweit schlicht nicht persönlich.</p></details>
-      <details><summary>Brauche ich Programmierkenntnisse?</summary><p>Nein. Der Check läuft im Browser, der Beweis ist Copy-Paste und das Starterset richtest Du mit Schritt-für-Schritt-Anleitung plus 20-Minuten-Call mit uns ein.</p></details>
+      <details open><summary>Was kostet das?</summary><p>Der Engpass-Check und der <a href="beweis.html" style="color:#7FB0FF;text-decoration:underline">15-Minuten-Beweis</a> kosten nichts. Das komplette Starterset „Das Firmen-Gedächtnis" kostet einmalig 97 € statt 249 € im Einführungsprogramm, ohne Abo, mit komplettem Video-Kurs und persönlichem Setup-Call. Der Setup-Call ist auf 50 Unternehmen begrenzt, mehr schaffen wir zu zweit schlicht nicht persönlich.</p></details>
+      <details><summary>Brauche ich Programmierkenntnisse?</summary><p>Nein. Der Check läuft im Browser, der Beweis ist Copy-Paste und das Starterset richtest Du mit dem Video-Kurs ein: 53 Videos, in denen Clemens alles einmal vormacht. Wenn Du trotzdem hängst, gibt es den 20-Minuten-Call mit uns.</p></details>
       <details><summary>Was passiert mit unseren Daten?</summary><p>Euer Wissen bleibt bei Euch. mocotel ist IT-Systemhaus mit über 10 Jahren Praxis, Microsoft- und Sophos-Partner, DSGVO-konform.</p></details>
       <details><summary>Wir nutzen schon ChatGPT, wozu das?</summary><p>Genau dafür ist der <a href="beweis.html" style="color:#7FB0FF;text-decoration:underline">15-Minuten-Beweis</a> da. Drei Prompts, eine Beispiel-Vorlage, kein Download. Mach ihn. Danach siehst Du den Unterschied selbst, bevor Du irgendetwas entscheidest.</p></details>
     </div>
@@ -714,11 +751,11 @@ br.mbr{display:none}
 
 <script>
 /* =====================================================================
-   TODO vor Livegang: STRIPE_URL auf den neuen 97-EUR-Payment-Link setzen.
-   Der Wert unten ist noch der alte 0-EUR-Link aus der Live-Seite.
-   Alle Kauf-Buttons der Seite ziehen ihre URL aus dieser einen Variable.
+   Zentrale Kauf-URL. Alle Kauf-Buttons der Seite ziehen ihre Adresse aus
+   dieser einen Variable, es ist also genau eine Zeile zu tauschen, sobald
+   der 97-EUR-Payment-Link in Stripe angelegt ist.
    ===================================================================== */
-var STRIPE_URL = "https://buy.stripe.com/eVq14m8iC8NBeucbUW0co03"; /* <-- 97-EUR-Link hier eintragen */
+var STRIPE_URL = "https://buy.stripe.com/eVq14m8iC8NBeucbUW0co03";
 (function(){
   function apply(){
     var els = document.querySelectorAll("a.cta-stripe");
