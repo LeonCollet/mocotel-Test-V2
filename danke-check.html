@@ -338,7 +338,14 @@ br.mbr{display:none}
       <span class="k">Weil Dein Ergebnis deutlich ist</span>
       <h3>Clemens meldet sich heute kurz pers&ouml;nlich bei Dir.</h3>
       <p>Dein Check zeigt, dass bei Euch fast alles &uuml;ber einzelne K&ouml;pfe l&auml;uft. Clemens von mocotel geht mit Dir durch, welche Deiner Antworten am meisten kostet. Dauert keine f&uuml;nf Minuten.</p>
-      <!-- TODO: Name und Reaktionszeit mit Clemens best&auml;tigen, bevor das live geht. -->
+      <!-- Reaktionszeit mit Clemens best&auml;tigen, bevor das live geht. -->
+    </div>
+
+    <!-- Score 10-14, aber keine Telefonnummer hinterlassen -->
+    <div class="dk-card hide" id="dkHotNoCall">
+      <span class="k">Weil Dein Ergebnis deutlich ist</span>
+      <h3>Wenn Du willst, schauen wir gemeinsam drauf.</h3>
+      <p>Dein Check zeigt, dass bei Euch fast alles &uuml;ber einzelne K&ouml;pfe l&auml;uft. Wenn Du wissen willst, welche Deiner Antworten am meisten kostet: antworte einfach auf die Mail, die gerade rausgeht. Clemens ruft Dich dann kurz zur&uuml;ck, f&uuml;nf Minuten, kein Verkaufsgespr&auml;ch.</p>
     </div>
 
     <div class="dk-quiet">
@@ -377,7 +384,11 @@ br.mbr{display:none}
     el.innerHTML = "Dein Ergebnis: <b style=\"color:#fff\">" + score + " von 14 Punkten</b>.";
     el.classList.remove("hide");
   }
-  if(band === "hot"){ document.getElementById("dkHot").classList.remove("hide"); }
+  /* Drei Zust\u00e4nde: hot mit Nummer, hot ohne Nummer, alles andere */
+  if(band === "hot"){
+    var wantsCall = p.get("call") === "1";
+    document.getElementById(wantsCall ? "dkHot" : "dkHotNoCall").classList.remove("hide");
+  }
 })();
 </script>
 

@@ -324,6 +324,12 @@ br.mbr{display:none}
 .quiz__form input::placeholder{color:rgba(255,255,255,.35)}
 .quiz__hint{font-size:.84rem;color:var(--muted);line-height:1.5;margin-top:14px}
 .quiz__err{color:#FFB4B4;font-size:.86rem;display:none;margin-top:-4px}
+.qz-phone{border:1px solid rgba(127,176,255,.3);border-radius:14px;background:rgba(48,88,162,.14);padding:18px 20px;margin-top:4px}
+.qz-phone[hidden]{display:none}
+.qz-phone__head{margin-bottom:14px}
+.qz-phone__head strong{display:block;color:#fff;font-size:1rem;margin-bottom:5px}
+.qz-phone__head span{display:block;color:var(--muted);font-size:.92rem;line-height:1.5}
+.qz-phone label .opt{font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);font-size:.8rem}
 .quiz-step{display:none;animation:qfade .32s ease}
 .quiz-step.on{display:block}
 @keyframes qfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -472,10 +478,25 @@ br.mbr{display:none}
             <label for="qzMail">E-Mail</label>
             <input type="email" id="qzMail" name="email" autocomplete="email" placeholder="name@firma.de" required>
           </div>
+
+          <!-- ==========================================================
+               Erscheint ausschliesslich bei Score 10 bis 14 (band=hot).
+               Optional, weil eine Nummer, die jemand fuer eine Mail
+               hinterlaesst, keine Einwilligung in einen Anruf ist. Wer
+               hier eine Nummer eintraegt, bittet aktiv um das Gespraech.
+               ========================================================== -->
+          <div class="qz-phone" id="qzPhoneWrap" hidden>
+            <div class="qz-phone__head">
+              <strong>Dein Ergebnis ist deutlich.</strong>
+              <span>Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? F&uuml;nf Minuten, kein Verkaufsgespr&auml;ch.</span>
+            </div>
+            <label for="qzPhone">Telefon <span class="opt">&middot; optional</span></label>
+            <input type="tel" id="qzPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="Nur wenn Du angerufen werden willst">
+          </div>
           <div class="quiz__err" id="qzErr">Bitte Vorname und eine g&uuml;ltige E-Mail-Adresse eintragen.</div>
           <button class="btn lg pay" type="submit" data-track="quiz_optin">Auswertung + Beweis schicken <span class="btn-arrow">&rarr;</span></button>
         </form>
-        <p class="quiz__hint">Sofort im Postfach: Deine ausf&uuml;hrliche Auswertung und der Link zum 15-Minuten-Beweis. Dazu h&ouml;chstens drei weitere Mails. Abmeldung jederzeit. Mehr in unserer <a href="https://mocotel.de/datenschutz" target="_blank" rel="noopener" style="color:var(--blue-soft);text-decoration:underline">Datenschutzerkl&auml;rung</a>.</p>
+        <p class="quiz__hint">Sofort im Postfach: Deine ausf&uuml;hrliche Auswertung und der Link zum 15-Minuten-Beweis. Dazu h&ouml;chstens drei weitere Mails. Abmeldung jederzeit.<span id="qzHintPhone" hidden> Die Telefonnummer brauchen wir nur, wenn Du den Anruf willst.</span> Mehr in unserer <a href="https://mocotel.de/datenschutz" target="_blank" rel="noopener" style="color:var(--blue-soft);text-decoration:underline">Datenschutzerkl&auml;rung</a>.</p>
       </div>
 
     </div>
@@ -513,6 +534,8 @@ var QUIZ_CONFIG = {
   fieldScore   : "field[SCORE]",     /* TODO: gegen echten AC-Feldschluessel tauschen */
   fieldBand    : "field[BAND]",      /* TODO: gegen echten AC-Feldschluessel tauschen */
   fieldKi      : "field[KI_NUTZUNG]",/* TODO: gegen echten AC-Feldschluessel tauschen */
+  fieldPhone   : "field[TELEFON]",     /* TODO: gegen echten AC-Feldschluessel tauschen */
+  fieldCall    : "field[ANRUF_WUNSCH]",/* TODO: gegen echten AC-Feldschluessel tauschen */
   thanksUrl    : "danke-check.html"
 };
 
@@ -621,6 +644,14 @@ var QUIZ_CONFIG = {
   $("qzStart").addEventListener("click", function(){ idx = 0; render(); track("quiz_start"); });
   $("qzBack").addEventListener("click", function(){ if(idx>0){ idx--; render(); } });
   $("qzToOptin").addEventListener("click", function(){
+    /* Telefonfeld nur fuer Hot Leads (Score 10-14) */
+    var wrap = $("qzPhoneWrap");
+    if(wrap){
+      var showPhone = (band === "hot");
+      wrap.hidden = !showPhone;
+      var hp = $("qzHintPhone"); if(hp) hp.hidden = !showPhone;
+      if(!showPhone){ try{ $("qzPhone").value = ""; }catch(e){} }
+    }
     show("optin"); scrollToQuiz();
     setTimeout(function(){ try{ $("qzName").focus(); }catch(e){} }, 260);
   });
@@ -629,13 +660,29 @@ var QUIZ_CONFIG = {
     e.preventDefault();
     var name = $("qzName").value.trim();
     var mail = $("qzMail").value.trim();
-    var ok = name.length > 1 && /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail);
-    $("qzErr").style.display = ok ? "none" : "block";
-    if(!ok) return;
+    var err  = $("qzErr");
+
+    if(!(name.length > 1 && /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(mail))){
+      err.textContent = "Bitte Vorname und eine g\u00fcltige E-Mail-Adresse eintragen.";
+      err.style.display = "block";
+      return;
+    }
+
+    /* Telefon ist optional und existiert nur bei band=hot */
+    var wrap  = $("qzPhoneWrap");
+    var phone = (wrap && !wrap.hidden) ? $("qzPhone").value.trim() : "";
+    if(phone && phone.replace(/[^0-9]/g, "").length < 6){
+      err.textContent = "Die Telefonnummer sieht unvollst\u00e4ndig aus. Du kannst das Feld auch leer lassen.";
+      err.style.display = "block";
+      return;
+    }
+    err.style.display = "none";
+    var wantsCall = phone ? "ja" : "nein";
 
     var ki = "abc".charAt(answers[TOTAL-1] || 0);
-    var next = QUIZ_CONFIG.thanksUrl + "?score=" + score + "&band=" + band + "&name=" + encodeURIComponent(name);
-    track("quiz_optin", {score: score, band: band, ki: ki});
+    var next = QUIZ_CONFIG.thanksUrl + "?score=" + score + "&band=" + band +
+               "&name=" + encodeURIComponent(name) + (phone ? "&call=1" : "");
+    track("quiz_optin", {score: score, band: band, ki: ki, call: wantsCall});
 
     if(!QUIZ_CONFIG.formEndpoint){ location.href = next; return; }
 
@@ -649,6 +696,8 @@ var QUIZ_CONFIG = {
     fd.append(QUIZ_CONFIG.fieldScore, String(score));
     fd.append(QUIZ_CONFIG.fieldBand, band);
     fd.append(QUIZ_CONFIG.fieldKi, ki);
+    fd.append(QUIZ_CONFIG.fieldCall, wantsCall);
+    if(phone){ fd.append("phone", phone); fd.append(QUIZ_CONFIG.fieldPhone, phone); }
     try{
       var p = new URLSearchParams(location.search);
       fd.append("utm_source", p.get("utm_source")||"");
