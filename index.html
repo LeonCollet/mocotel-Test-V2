@@ -741,17 +741,25 @@ var QUIZ_CONFIG = {
           quelle      : "engpass-check",
           seite       : location.href
         };
-        var body = JSON.stringify(payload);
+        /* Als Formular-Felder, nicht als JSON-Blob. Ohne CORS sind nur die
+           "simple" Content-Types erlaubt; bei text/plain legt Make den Body
+           nicht auseinander und die Queue zeigt ein leeres {}. Mit
+           x-www-form-urlencoded parst Make jedes Feld einzeln. */
+        var params = new URLSearchParams();
+        for(var k in payload){
+          if(Object.prototype.hasOwnProperty.call(payload, k)){
+            params.append(k, payload[k] == null ? "" : String(payload[k]));
+          }
+        }
         var sent = false;
         if(navigator.sendBeacon){
-          sent = navigator.sendBeacon(QUIZ_CONFIG.makeWebhook,
-                   new Blob([body], {type: "text/plain;charset=UTF-8"}));
+          /* URLSearchParams setzt x-www-form-urlencoded automatisch. */
+          sent = navigator.sendBeacon(QUIZ_CONFIG.makeWebhook, params);
         }
         if(!sent && window.fetch){
           fetch(QUIZ_CONFIG.makeWebhook, {
             method: "POST", mode: "no-cors", keepalive: true,
-            headers: {"Content-Type": "text/plain;charset=UTF-8"},
-            body: body
+            body: params
           })["catch"](function(){});
         }
       } catch(e){}
