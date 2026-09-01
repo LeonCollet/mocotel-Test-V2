@@ -498,7 +498,7 @@ p,li,span,label,figcaption,
 <div class="qz-phone" hidden="" id="qzPhoneWrap">
 <div class="qz-phone__head">
 <strong id="qzPhoneH">Dein Ergebnis ist deutlich.</strong>
-<span id="qzPhoneP">Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? Fünf Minuten, kein Verkaufsgespräch.</span>
+<span id="qzPhoneP">Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? Fünf Minuten. Danach weißt Du, wo es zuerst klemmt.</span>
 </div>
 <label for="qzPhone">Telefon <span class="opt">· optional</span></label>
 <input autocomplete="tel" id="qzPhone" inputmode="tel" name="phone" placeholder="Nur wenn Du angerufen werden willst" type="tel"/>
@@ -506,7 +506,7 @@ p,li,span,label,figcaption,
 <div class="quiz__err" id="qzErr">Bitte Vorname und eine gültige E-Mail-Adresse eintragen.</div>
 <button class="btn lg pay" data-track="quiz_optin" type="submit">Auswertung + Beweis schicken <span class="btn-arrow">→</span></button>
 </form>
-<p class="quiz__hint">Sofort im Postfach: Deine ausführliche Auswertung und der Link zum 15-Minuten-Beweis. Dazu höchstens drei weitere Mails. Abmeldung jederzeit.<span hidden="" id="qzHintPhone"> Die Telefonnummer brauchen wir nur, wenn Du den Anruf willst.</span> Mehr in unserer <a href="https://mocotel.de/datenschutz" rel="noopener" style="color:var(--blue-soft);text-decoration:underline" target="_blank">Datenschutzerklärung</a>.</p>
+<p class="quiz__hint">Sofort im Postfach: Deine ausführliche Auswertung und der Link zum 15-Minuten-Beweis. Danach ein paar Mails, die zeigen, wie Du aus dem Engpass rauskommst. Abmeldung mit einem Klick.<span hidden="" id="qzHintPhone"> Die Telefonnummer brauchen wir nur, wenn Du den Anruf willst.</span> Mehr in unserer <a href="https://mocotel.de/datenschutz" rel="noopener" style="color:var(--blue-soft);text-decoration:underline" target="_blank">Datenschutzerklärung</a>.</p>
 </div>
 </div>
 </div>
@@ -528,20 +528,27 @@ p,li,span,label,figcaption,
 /* =====================================================================
    ENGPASS-CHECK  ·  Konfiguration
    ---------------------------------------------------------------------
-   TODO vor Livegang: formEndpoint auf die ActiveCampaign-Form-URL setzen
-   (Format: https://<account>.activehosted.com/proc.php).
-   Solange leer, wird nichts gesendet und direkt auf die Danke-Seite
-   weitergeleitet, damit der Funnel testbar bleibt.
+   Werte stammen aus dem Einbettungscode des AC-Formulars "Engpass-Check".
+   Die Feldnummern sind kontospezifisch. Wenn in AC ein Feld geloescht und
+   neu angelegt wird, aendert sich die Nummer und muss hier nachgezogen
+   werden. Zuordnung laut window.cfields:
+     field[2] = score, field[7] = band, field[8] = kinutzung,
+     field[9] = anrufwunsch
+   formEndpoint leer lassen schaltet den Versand ab, die Seite leitet dann
+   direkt auf die Danke-Seite weiter. Praktisch fuer Layout-Tests.
    ===================================================================== */
 var QUIZ_CONFIG = {
-  formEndpoint : "",                 /* TODO: ActiveCampaign proc.php-URL */
-  acFormId     : "",                 /* TODO: AC-Formular-ID (Feld "f") */
-  acListId     : "",                 /* TODO: AC-Listen-ID (Feld "l") */
-  fieldScore   : "field[SCORE]",     /* TODO: gegen echten AC-Feldschluessel tauschen */
-  fieldBand    : "field[BAND]",      /* TODO: gegen echten AC-Feldschluessel tauschen */
-  fieldKi      : "field[KI_NUTZUNG]",/* TODO: gegen echten AC-Feldschluessel tauschen */
-  fieldPhone   : "field[TELEFON]",     /* TODO: gegen echten AC-Feldschluessel tauschen */
-  fieldCall    : "field[ANRUF_WUNSCH]",/* TODO: gegen echten AC-Feldschluessel tauschen */
+  /* ActiveCampaign, Konto mocotel, Formular "Engpass-Check" (ID 1) */
+  formEndpoint : "https://mocotel.activehosted.com/proc.php",
+  acFormId     : "1",                /* Felder u und f */
+  fieldScore   : "field[2]",         /* score        */
+  fieldBand    : "field[7]",         /* band         */
+  fieldKi      : "field[8]",         /* kinutzung    */
+  fieldCall    : "field[9]",         /* anrufwunsch  */
+  /* Make-Webhook, leer lassen schaltet ihn ab. Custom Webhook in Make
+     anlegen, URL hier eintragen. Feuert parallel zu AC, unabhaengig vom
+     Double Opt-in, damit Clemens den Anrufwunsch sofort sieht. */
+  makeWebhook  : "https://hook.eu2.make.com/2q4op9tlgxzvnu54zijlecmeqn4g0ld4",
   thanksUrl    : "danke-check.html"
 };
 
@@ -577,11 +584,11 @@ var QUIZ_CONFIG = {
   var PHONE_COPY = {
     hot: {
       h: "Dein Ergebnis ist deutlich.",
-      p: "Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? F\u00fcnf Minuten, kein Verkaufsgespr\u00e4ch."
+      p: "Willst Du, dass Clemens Dich kurz anruft und mit Dir durchgeht, welche Deiner Antworten am meisten kostet? F\u00fcnf Minuten. Danach wei\u00dft Du, wo es zuerst klemmt."
     },
     mid: {
       h: "Willst Du Dein Ergebnis kurz besprechen?",
-      p: "Clemens ruft Dich an und geht mit Dir durch, welche Deiner Antworten im Urlaub oder bei einer K\u00fcndigung zuerst weh tut. F\u00fcnf Minuten, kein Verkaufsgespr\u00e4ch."
+      p: "Clemens ruft Dich an und geht mit Dir durch, welche Deiner Antworten im Urlaub oder bei einer K\u00fcndigung zuerst weh tut. F\u00fcnf Minuten, ohne Termin und ohne Vorbereitung."
     }
   };
 
@@ -702,37 +709,98 @@ var QUIZ_CONFIG = {
     err.style.display = "none";
     var wantsCall = phone ? "ja" : "nein";
 
+    /* AC prueft die Telefonnummer und verwirft die komplette Einreichung, wenn
+       sie nicht im internationalen Format ankommt. Deshalb hier normalisieren. */
+    var phoneE164 = "";
+    if(phone){
+      var digits = phone.replace(/[^0-9+]/g, "");
+      if(digits.indexOf("00") === 0){ digits = "+" + digits.slice(2); }
+      else if(digits.indexOf("+") !== 0){
+        digits = "+49" + digits.replace(/^0+/, "");
+      }
+      phoneE164 = digits;
+    }
+
     var ki = "abc".charAt(answers[TOTAL-1] || 0);
     var next = QUIZ_CONFIG.thanksUrl + "?score=" + score + "&band=" + band +
                "&name=" + encodeURIComponent(name) + (phone ? "&call=1" : "");
     track("quiz_optin", {score: score, band: band, ki: ki, call: wantsCall});
 
+    /* Parallel an Make. Fire and forget, Fehler duerfen den Nutzer nie
+       aufhalten. no-cors, weil Make keine CORS-Header setzt. */
+    if(QUIZ_CONFIG.makeWebhook){
+      try {
+        var payload = {
+          vorname     : name,
+          email       : mail,
+          telefon     : phoneE164,
+          score       : score,
+          band        : band,
+          ki_nutzung  : ki,
+          anrufwunsch : wantsCall,
+          quelle      : "engpass-check",
+          seite       : location.href
+        };
+        var body = JSON.stringify(payload);
+        var sent = false;
+        if(navigator.sendBeacon){
+          sent = navigator.sendBeacon(QUIZ_CONFIG.makeWebhook,
+                   new Blob([body], {type: "text/plain;charset=UTF-8"}));
+        }
+        if(!sent && window.fetch){
+          fetch(QUIZ_CONFIG.makeWebhook, {
+            method: "POST", mode: "no-cors", keepalive: true,
+            headers: {"Content-Type": "text/plain;charset=UTF-8"},
+            body: body
+          })["catch"](function(){});
+        }
+      } catch(e){}
+    }
+
     if(!QUIZ_CONFIG.formEndpoint){ location.href = next; return; }
 
-    var fd = new FormData();
-    fd.append("fullname", name);
-    fd.append("firstname", name);
-    fd.append("email", mail);
-    if(QUIZ_CONFIG.acFormId) fd.append("f", QUIZ_CONFIG.acFormId);
-    if(QUIZ_CONFIG.acListId) fd.append("l", QUIZ_CONFIG.acListId);
-    fd.append("u", QUIZ_CONFIG.acFormId || "");
-    fd.append(QUIZ_CONFIG.fieldScore, String(score));
-    fd.append(QUIZ_CONFIG.fieldBand, band);
-    fd.append(QUIZ_CONFIG.fieldKi, ki);
-    fd.append(QUIZ_CONFIG.fieldCall, wantsCall);
-    if(phone){ fd.append("phone", phone); fd.append(QUIZ_CONFIG.fieldPhone, phone); }
-    try{
-      var p = new URLSearchParams(location.search);
-      fd.append("utm_source", p.get("utm_source")||"");
-      fd.append("utm_campaign", p.get("utm_campaign")||"");
-      fd.append("utm_content", p.get("utm_content")||"");
-    }catch(e){}
+    /* Uebertragung exakt so wie das AC-Formular selbst: GET auf proc.php mit
+       jsonp=true, geladen als Script-Tag. Kein CORS, kein Preflight. */
+    var q = [];
+    var put = function(k, v){ q.push(k + "=" + encodeURIComponent(v == null ? "" : v)); };
+
+    put("u", QUIZ_CONFIG.acFormId);
+    put("f", QUIZ_CONFIG.acFormId);
+    put("s", "");
+    put("c", "0");
+    put("m", "0");
+    put("act", "sub");
+    put("v", "2");
+    /* Kein "or": AC erzeugt den Wert bei jedem Rendern des Formulars neu,
+       ein fester Wert waere falsch. */
+
+    put("firstname", name);
+    put("email", mail);
+    if(phoneE164) put("phone", phoneE164);
+
+    put(QUIZ_CONFIG.fieldScore, String(score));
+    put(QUIZ_CONFIG.fieldBand,  band);
+    put(QUIZ_CONFIG.fieldKi,    ki);
+    put(QUIZ_CONFIG.fieldCall,  wantsCall);
+
+    /* Die JSONP-Antwort von AC ruft diese Funktionen auf. Stubs, damit sie
+       nicht ins Leere laufen. */
+    window._show_thank_you = window._show_thank_you || function(){};
+    window._show_error     = window._show_error     || function(){};
+    window._show_unsubscribe = window._show_unsubscribe || function(){};
+    window._show_pc_confirmation = window._show_pc_confirmation || function(){};
+    window._load_script    = window._load_script    || function(){};
 
     var done = false;
     var go = function(){ if(done) return; done = true; location.href = next; };
     setTimeout(go, 2500);
     try{
-      fetch(QUIZ_CONFIG.formEndpoint, {method:"POST", mode:"no-cors", body:fd}).then(go).catch(go);
+      var sc = document.createElement("script");
+      sc.charset = "utf-8";
+      sc.src = QUIZ_CONFIG.formEndpoint + "?" + q.join("&") + "&jsonp=true";
+      sc.onload = go;
+      sc.onerror = go;
+      document.head.appendChild(sc);
     }catch(e){ go(); }
   });
 
